@@ -10,12 +10,12 @@ public class Expense {
     double amount;
    
 
-    Expense(String expenseMonth,double amount,String name,String description,String paymentMethod){
+    Expense(String expenseMonth,double amount,String name,String description){
         this.expenseMonth=expenseMonth;
         this.description = description;
         this.amount = amount;
         this.name = name;
-        this.paymentMethod = paymentMethod;
+        
     }
 
     public String getDescription(){
@@ -24,9 +24,7 @@ public class Expense {
     public String getName(){
         return name;
     }
-    public String getPaymentMethod(){
-        return paymentMethod;
-    }
+   
     public String getExpenseMonth(){
         return expenseMonth;
     }

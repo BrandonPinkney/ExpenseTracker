@@ -23,10 +23,11 @@ public class FinanceManager {
     expenses.remove(expense);
 
   }
+  // removes given income from a list
   public void removeIncome(Income income){
     incomes.remove(income);
   }
-
+// gets monthly expenses
   public List<Expense> expensesByMonth(String month){
     List <Expense> months = new ArrayList<>();
 
@@ -37,6 +38,7 @@ public class FinanceManager {
    }
    return months;
   }
+  // get monthly incomes
  public List<Income> incomeByMonth(String month){
   List<Income> months = new ArrayList<>();
 
@@ -47,6 +49,7 @@ public class FinanceManager {
   }
   return months;
  }
+ // get total expense amount monthly
   public double totalExpensesAmtByMonth(String month){
     List<Expense> m = expensesByMonth(month);
 double sum = 0;
@@ -55,7 +58,16 @@ double sum = 0;
     }
     return sum;
   }
-
+  // get total income amount monthly 
+  public double totalIncomesAmtByMonth(String month){
+    List<Income> i = incomeByMonth(month);
+    double sum = 0;
+    for(Income e:i){
+      sum+=e.getAmount();
+    }
+    return sum;
+  }
+// get average expense amount monthlyd                                                                                 
   public double avgExpensesAmtByMonth(String month){
   List <Expense> m = expensesByMonth(month);  
 double sum = 0;
@@ -67,6 +79,21 @@ if(m.isEmpty()){
     sum +=e.getAmount();
       }
        return sum/length;
+   }
+
+   // get average income amount monthly
+
+   public double avgIncomeAmtByMonth(String month){
+    List<Income> i = incomeByMonth(month);
+    double sum = 0 ;
+    double length = i.size();
+    if(i.isEmpty()){
+      return 0.0;
+    }
+    for(Income e:i){
+      sum+=e.getAmount();
+    }
+    return sum/length;
    }
 
      
